@@ -1,5 +1,7 @@
 server:
   port: 8084
+  servlet:
+    context-path: /api/v1/traceability
 
 spring:
   application:
@@ -7,6 +9,7 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/traceability_db
+      auto-index-creation: true
   rabbitmq:
     host: localhost
     port: 5672
@@ -18,6 +21,13 @@ spring:
         retry:
           enabled: true
           max-attempts: 3
+
+springdoc:
+  swagger-ui:
+    enabled: true
+  api-docs:
+    enabled: true
+  server-url: http://localhost:8080
 
 eureka:
   client:

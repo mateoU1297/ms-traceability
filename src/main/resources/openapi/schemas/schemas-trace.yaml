@@ -1,0 +1,26 @@
+components:
+  schemas:
+    TraceResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "65f1a2b3c4d5e6f7a8b9c0d1"
+        orderId:
+          type: integer
+          format: int64
+          example: 1
+        clientId:
+          type: integer
+          format: int64
+          example: 5
+        previousStatus:
+          type: string
+          example: "PENDING"
+        newStatus:
+          type: string
+          example: "IN_PREPARATION"
+        changedAt:
+          type: string
+          format: date-time
+          example: "2026-03-14T10:30:45.123Z"

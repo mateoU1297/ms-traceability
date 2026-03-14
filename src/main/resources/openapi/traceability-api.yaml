@@ -1,0 +1,68 @@
+openapi: 3.0.1
+info:
+  title: Traceability Microservice API
+  description: API for order traceability in Plazoleta de Comidas system
+  version: 1.0.0
+  contact:
+    name: Mateo Castro
+    email: mateocastro1297@gmail.com
+
+servers:
+  - url: http://localhost:8084/api/v1/traceability
+    description: Local server
+
+tags:
+  - name: Traceability
+    description: Order traceability operations
+
+paths:
+  /clients/orders/{orderId}:
+    get:
+      summary: Get order status change history
+      operationId: getOrderTraces
+      tags:
+        - Traceability
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Order traces retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './schemas/schemas-trace.yaml#/components/schemas/TraceResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/schemas-error.yaml#/components/schemas/ErrorResponse'
+        '403':
+          description: Order does not belong to this client
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/schemas-error.yaml#/components/schemas/ErrorResponse'
+        '404':
+          description: Order not found
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/schemas-error.yaml#/components/schemas/ErrorResponse'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: "Enter your JWT token in the format: Bearer <token>"
