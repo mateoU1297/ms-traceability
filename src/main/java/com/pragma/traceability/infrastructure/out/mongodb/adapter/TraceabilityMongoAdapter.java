@@ -27,4 +27,11 @@ public class TraceabilityMongoAdapter implements ITraceabilityPersistencePort {
                 orderTraceMongoRepository.findByOrderIdOrderByChangedAtAsc(orderId)
         );
     }
+
+    @Override
+    public List<OrderTrace> findByRestaurantId(Long restaurantId) {
+        return orderTraceDocumentMapper.toDomainList(
+                orderTraceMongoRepository.findByRestaurantIdOrderByChangedAtAsc(restaurantId)
+        );
+    }
 }

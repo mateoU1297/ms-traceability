@@ -9,4 +9,6 @@ public interface ITraceabilityPersistencePort {
     void save(OrderTrace orderTrace);
 
     List<OrderTrace> findByOrderId(Long orderId);
+
+    List<OrderTrace> findByRestaurantId(Long restaurantId);
 }

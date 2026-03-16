@@ -24,6 +24,12 @@ public class OrderTraceDocument {
     @Field("client_id")
     private Long clientId;
 
+    @Field("restaurant_id")
+    private Long restaurantId;
+
+    @Field("employee_id")
+    private Long employeeId;
+
     @Field("previous_status")
     private String previousStatus;
 

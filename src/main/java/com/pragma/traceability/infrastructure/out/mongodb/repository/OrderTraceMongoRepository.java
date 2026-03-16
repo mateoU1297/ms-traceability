@@ -8,4 +8,6 @@ import java.util.List;
 public interface OrderTraceMongoRepository extends MongoRepository<OrderTraceDocument, String> {
 
     List<OrderTraceDocument> findByOrderIdOrderByChangedAtAsc(Long orderId);
+
+    List<OrderTraceDocument> findByRestaurantIdOrderByChangedAtAsc(Long restaurantId);
 }

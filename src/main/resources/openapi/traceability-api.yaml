@@ -16,6 +16,56 @@ tags:
     description: Order traceability operations
 
 paths:
+  /owners/restaurants/{restaurantId}/orders-efficiency:
+    get:
+      summary: Get efficiency of each order in a restaurant
+      operationId: getOrdersEfficiency
+      tags:
+        - Traceability
+      security:
+        - bearerAuth: [ ]
+      parameters:
+        - name: restaurantId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Orders efficiency retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './schemas/schemas-trace.yaml#/components/schemas/OrderEfficiencyResponse'
+
+  /owners/restaurants/{restaurantId}/employees-efficiency:
+    get:
+      summary: Get employees efficiency ranking
+      operationId: getEmployeesEfficiencyRanking
+      tags:
+        - Traceability
+      security:
+        - bearerAuth: [ ]
+      parameters:
+        - name: restaurantId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Employees efficiency ranking retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './schemas/schemas-trace.yaml#/components/schemas/EmployeeEfficiencyResponse'
+
   /clients/orders/{orderId}:
     get:
       summary: Get order status change history
