@@ -24,3 +24,37 @@ components:
           type: string
           format: date-time
           example: "2026-03-14T10:30:45.123Z"
+
+    OrderEfficiencyResponse:
+      type: object
+      properties:
+        orderId:
+          type: integer
+          format: int64
+          example: 1
+        startedAt:
+          type: string
+          format: date-time
+        finishedAt:
+          type: string
+          format: date-time
+        durationMinutes:
+          type: integer
+          format: int64
+          example: 45
+
+    EmployeeEfficiencyResponse:
+      type: object
+      properties:
+        employeeId:
+          type: integer
+          format: int64
+          example: 20
+        averageDurationMinutes:
+          type: number
+          format: double
+          example: 32.5
+        totalOrders:
+          type: integer
+          format: int64
+          example: 10

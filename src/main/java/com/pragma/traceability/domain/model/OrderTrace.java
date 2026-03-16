@@ -6,6 +6,8 @@ public class OrderTrace {
     private String id;
     private Long orderId;
     private Long clientId;
+    private Long restaurantId;
+    private Long employeeId;
     private String previousStatus;
     private String newStatus;
     private LocalDateTime changedAt;
@@ -13,11 +15,13 @@ public class OrderTrace {
     public OrderTrace() {
     }
 
-    public OrderTrace(String id, Long orderId, Long clientId, String previousStatus, String newStatus,
-                      LocalDateTime changedAt) {
+    public OrderTrace(String id, Long orderId, Long clientId, Long restaurantId, Long employeeId, String previousStatus,
+                      String newStatus, LocalDateTime changedAt) {
         this.id = id;
         this.orderId = orderId;
         this.clientId = clientId;
+        this.restaurantId = restaurantId;
+        this.employeeId = employeeId;
         this.previousStatus = previousStatus;
         this.newStatus = newStatus;
         this.changedAt = changedAt;
@@ -45,6 +49,22 @@ public class OrderTrace {
 
     public void setClientId(Long clientId) {
         this.clientId = clientId;
+    }
+
+    public Long getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(Long restaurantId) {
+        this.restaurantId = restaurantId;
+    }
+
+    public Long getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getPreviousStatus() {
