@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 public class OrderStatusChangedEvent {
     private Long orderId;
     private Long clientId;
+    private Long restaurantId;
+    private Long employeeId;
     private String previousStatus;
     private String newStatus;
     private LocalDateTime changedAt;

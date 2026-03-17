@@ -23,6 +23,8 @@ public class OrderStatusChangedConsumer {
         OrderTrace trace = new OrderTrace();
         trace.setOrderId(event.getOrderId());
         trace.setClientId(event.getClientId());
+        trace.setRestaurantId(event.getRestaurantId());
+        trace.setEmployeeId(event.getEmployeeId());
         trace.setPreviousStatus(event.getPreviousStatus());
         trace.setNewStatus(event.getNewStatus());
         trace.setChangedAt(event.getChangedAt());
